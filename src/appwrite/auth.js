@@ -78,9 +78,14 @@ export class AuthService {
 
   async loginWithGoogle() {
     try {
+      const redirectURL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:5173/auth/callback"
+          : "https://blogwala-nine.vercel.app/auth/callback";
       await this.account.createOAuth2Session(
         "google",
-        `${window.location.origin}/auth/callback`, // Success redirect
+        // `${window.location.origin}/auth/callback`, // Success redirect
+        redirectURL,
         `${window.location.origin}/login` //Failure redirect
       );
     } catch (error) {
