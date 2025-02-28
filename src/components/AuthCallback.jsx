@@ -10,11 +10,13 @@ const AuthCallback = () => {
       try {
         const user = await authService.account.get();
         if (user) {
-          navigate("/");
+          window.location.replace("/");
+        } else {
+          navigate("/login");
         }
       } catch (error) {
         console.error("OAuth Callback Error:", error);
-        navigate("/login");
+        window.location.replace("/login");
       }
     }
 
