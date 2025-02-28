@@ -80,14 +80,13 @@ export class AuthService {
     try {
       await this.account.createOAuth2Session(
         "google",
-        "http://localhost:5173/auth/callback", // Success redirect
-        "http://localhost:5173/login" //Failure redirect
+        `${window.location.origin}/auth/callback`, // Success redirect
+        `${window.location.origin}/login` //Failure redirect
       );
     } catch (error) {
       console.log("Error in loginWithGoogle :: ", error);
     }
   }
-  
 }
 
 const authService = new AuthService();
