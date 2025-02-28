@@ -1,5 +1,5 @@
 import Input from "./Input";
-import SignupForm from "./SignUpForm";
+import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Loader from "./Loader";
 import Header from "./Header/Header";
