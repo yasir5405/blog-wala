@@ -81,7 +81,7 @@ export class AuthService {
       const redirectURL =
         window.location.hostname === "localhost"
           ? "http://localhost:5173/auth/callback"
-          : "https://blogwala-nine.vercel.app/auth/callback";
+          : "https://blog-wala.vercel.app/auth/callback";
       await this.account.createOAuth2Session(
         "google",
         // `${window.location.origin}/auth/callback`, // Success redirect
