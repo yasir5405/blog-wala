@@ -27,7 +27,7 @@ export class AuthService {
       }
     } catch (error) {
       console.log("Error is createAccount :: ", error);
-      return false;
+      throw error;
     }
   }
 
@@ -36,6 +36,7 @@ export class AuthService {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
       console.log("Error in login :: ", error);
+      throw error;
     }
   }
 
@@ -89,6 +90,7 @@ export class AuthService {
       );
     } catch (error) {
       console.log("Error in loginWithGoogle :: ", error);
+      throw error;
     }
   }
 }

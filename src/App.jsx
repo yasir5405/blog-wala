@@ -15,6 +15,8 @@ import UserProfile from "./pages/UserProfile";
 import Contact from "./pages/Contact";
 import RecoverPassword from "./pages/RecoverPassword";
 import ResetPassword from "./pages/ResetPassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -41,6 +43,9 @@ const App = () => {
   return (
     <>
       {shouldShowHeader && <Header />}
+
+      <ToastContainer className='z-50' position="top-right" autoClose={3000} />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

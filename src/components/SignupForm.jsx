@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   const [error, setError] = useState("");
@@ -29,10 +30,12 @@ const SignUpForm = () => {
       if (userData) {
         const user = await authService.getCurrentUser();
         if (user) dispatch(login(user));
+        toast.success("Account created successfully!");
         // console.log("Signup Inputs:", { data });
       }
     } catch (error) {
       setError(error.message);
+      toast.error(error);
       console.log("Error while creating account :: ", error);
     } finally {
       setLoading(false);

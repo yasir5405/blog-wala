@@ -102,6 +102,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -111,6 +112,7 @@ const Header = () => {
   const handleLogout = async () => {
     await authService.logout();
     dispatch(logout());
+    toast.success("Logged out successfully");
   };
 
   const navLinks = [

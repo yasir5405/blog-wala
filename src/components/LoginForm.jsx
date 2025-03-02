@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const [error, setError] = useState("");
@@ -28,10 +29,12 @@ const LoginForm = () => {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
+        toast.success("Login successful!");
       }
     } catch (error) {
       setError(error.message);
       console.log("Error while logging in :: ", error);
+      toast.error('Invalid credentials. Please try again.')
     } finally {
       setLoading(false);
     }

@@ -23,7 +23,7 @@ export class Service {
       );
     } catch (error) {
       console.log("Error uploading profile image", error);
-      return null;
+      return false;
     }
   }
 
