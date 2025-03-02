@@ -59,7 +59,10 @@ export class AuthService {
 
   async recoverPassword({ email }) {
     try {
-      const resetUrl = import.meta.env.VITE_APP_BASE_URL + "/reset-password"; // Use Vite env variables
+      const resetUrl =
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5173/reset-password"
+          : "https://blog-wala.vercel.app/reset-password"; // Use Vite env variables
       return await this.account.createRecovery(email, resetUrl);
     } catch (error) {
       console.log("Error in recoverPassword :: ", error);
