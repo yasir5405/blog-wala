@@ -5,5 +5,15 @@ import Loader from "./Loader";
 import Header from "./Header/Header";
 import BlogCard from "./BlogCard";
 import AuthCallback from "./AuthCallback";
+import HeroSection from "./HeroSection";
 
-export { Input, SignupForm, LoginForm, Loader, Header, BlogCard, AuthCallback };
+export {
+  Input,
+  SignupForm,
+  LoginForm,
+  Loader,
+  Header,
+  BlogCard,
+  AuthCallback,
+  HeroSection,
+};

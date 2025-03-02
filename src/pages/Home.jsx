@@ -1,9 +1,9 @@
-import { BlogCard } from "../components";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   return (
     <>
-      {/* <BlogCard /> */}
+      <HeroSection />
     </>
   );
 };
