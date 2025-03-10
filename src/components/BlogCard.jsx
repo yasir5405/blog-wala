@@ -1,28 +1,34 @@
 import { ArrowUpRight } from "lucide-react";
+import service from "../appwrite/config";
+import conf from "../conf/conf";
+import parse from "html-react-parser";
 
-const BlogCard = () => {
+const BlogCard = ({ image, author, date, title, content }) => {
   return (
-    <div className="w-[380px] h-[350px] border-[1px] border-black flex flex-col mb-[20px] cursor-pointer">
-      <div className="h-[60%] w-full border-b-2">
+    <div className="w-full max-w-[380px] border border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all cursor-pointer bg-white">
+      {/* Image Section */}
+      <div className="h-[200px] w-full">
         <img
-          src="https://images.unsplash.com/photo-1739609579483-00b49437cc45?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={service.storage.getFilePreview(conf.appwriteBucketId, image)}
           className="h-full w-full object-cover"
-          alt=""
+          alt={title}
         />
       </div>
-      <div className="h-[40%] w-full flex flex-col justify-between py-[5px]">
-        <h1 className="font-medium text-[14px] text-sky-400">
-          Alec Whitten <span className="text-black">|</span> 1 Jan 2023
-        </h1>
-        <h1 className="font-medium text-[24px] flex items-center gap-[35px]">
-          Bill Walsh leadership lessons <ArrowUpRight size={28} className="text-black" />
+
+      {/* Content Section */}
+      <div className="p-4 flex flex-col justify-between space-y-3">
+        {/* Author & Date */}
+        <h1 className="text-sm font-medium text-sky-500">
+          {author} <span className="text-gray-500">|</span> {date}
         </h1>
 
-        <p className="text-[14px] font-medium leading-4 text-gray-600 ">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam,
-          doloribus. Cupiditate culpa quae velit maxime. Optio rem facilis quia
-          nostrum.
-        </p>
+        {/* Title */}
+        <h1 className="text-lg font-semibold flex items-center justify-between">
+          {title} <ArrowUpRight size={24} className="text-gray-600" />
+        </h1>
+
+        {/* Description (Truncated for Better Layout) */}
+        <p className="text-sm text-gray-600 line-clamp-3">{parse(content)}</p>
       </div>
     </div>
   );

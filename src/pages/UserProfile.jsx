@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import service from "../appwrite/config.js";
 import conf from "../conf/conf.js";
 import { useEffect, useState } from "react";
 import { AlertCircle, User } from "lucide-react";
+
 const UserProfile = () => {
   const { userId } = useParams();
   const userData = useSelector((state) => state.auth.userData);
@@ -78,18 +79,18 @@ const UserProfile = () => {
   return (
     <>
       {userId == userData?.$id && (
-        <div className="w-full h-[90vh]  flex py-[100px] justify-center">
+        <div className="w-full min-h-[90vh] flex py-[100px] justify-center">
           {/* Center Container */}
-          <div className="w-[600px] border-[1px] border-zinc-300 shadow-xl flex flex-col rounded-lg overflow-hidden">
+          <div className="w-full max-w-[600px] border border-zinc-300 shadow-xl flex flex-col rounded-lg overflow-hidden">
             {/* Buttons Div */}
-            <div className="w-full h-[40px] bg-[#F5F5F5] rounded-xl flex items-center gap-[10px] shadow-lg">
+            <div className="w-full flex items-center gap-2 bg-[#F5F5F5] shadow-lg p-2 rounded-t-lg">
               {buttons.map((button, index) => (
                 <button
-                  className={`px-[40px] h-full text-[14px] font-medium flex items-center justify-center gap-[7px] rounded-lg text-zinc-500 ${
-                    button.name == activePart ? "bg-white shadow-md" : ""
-                  }`}
                   key={index}
                   onClick={() => setActivePart(button.name)}
+                  className={`flex-1 py-2 text-[14px] font-medium flex items-center justify-center gap-2 rounded-lg text-zinc-500 ${
+                    button.name === activePart ? "bg-white shadow-md" : ""
+                  }`}
                 >
                   {button.icon}
                   {button.name}
@@ -98,48 +99,51 @@ const UserProfile = () => {
             </div>
 
             {/* Content */}
-            <div className=" w-full border-[1px] border-zinc-300 shadow-xl px-[30px] rounded-xl h-full py-[15px] mt-[8px]">
+            <div className="border border-zinc-300 shadow-xl p-4 rounded-b-lg">
               {activePart === "Profile" ? (
-                <div className="flex">
-                  <div className="w-[50%]">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                  {/* Left Section */}
+                  <div className="w-full sm:w-1/2">
                     <h1 className="font-semibold">Profile</h1>
-                    <p className="text-zinc-500 text-[14px]">
+                    <p className="text-zinc-500 text-sm">
                       Your personal information
                     </p>
 
-                    <h1 className="text-gray-500 text-[16px] mt-[15px] font-semibold">
-                      Name{" "}
+                    <h1 className="text-gray-500 text-sm mt-3 font-semibold">
+                      Name
                     </h1>
+                    <h1 className="font-semibold text-lg">{userData.name}</h1>
 
-                    <h1 className="font-semibold text-[18px]">
-                      {userData.name}
+                    <h1 className="text-gray-500 text-sm mt-3 font-semibold">
+                      Email
                     </h1>
+                    <h1 className="font-semibold text-lg">{userData.email}</h1>
 
-                    <h1 className="text-gray-500 text-[16px] mt-[15px] font-semibold">
-                      Email{" "}
-                    </h1>
-
-                    <h1 className="font-semibold text-[18px]">
-                      {userData.email}
-                    </h1>
+                    <Link to={"/my-posts"}>
+                      <h1 className="text-zinc-500 text-md my-4 font-semibold hover:underline">
+                        My Posts
+                      </h1>
+                    </Link>
                   </div>
 
-                  <div className="w-[50%]  flex items-center justify-center">
+                  {/* Profile Picture Section */}
+                  <div className="w-full sm:w-1/2 flex flex-col items-center gap-4">
                     {profileImage ? (
                       <img
                         src={profileImage}
                         alt="Profile"
-                        className="object-cover h-[180px] w-[180px] rounded-full"
+                        className="h-[150px] w-[150px] sm:h-[180px] sm:w-[180px] object-cover rounded-full border border-zinc-300"
                       />
                     ) : (
                       <form
                         onSubmit={handleUpload}
-                        className="flex flex-col gap-4"
+                        className="flex flex-col items-center gap-2"
                       >
                         <input
                           type="file"
                           accept="image/*"
                           onChange={handleFileChange}
+                          className="text-sm"
                         />
                         <button
                           type="submit"
@@ -154,23 +158,16 @@ const UserProfile = () => {
               ) : (
                 <div>
                   <h1 className="font-semibold">Account</h1>
-                  <p className="text-zinc-500 text-[14px]">
-                    Manage your account
-                  </p>
-                  <p className="text-zinc-500 text-[14px] my-[20px]">
-                    Your account is currently active and in good standing.
-                  </p>
+                  <p className="text-zinc-500 text-sm">Manage your account</p>
 
-                  <div className="w-full flex flex-col justify-center gap-[4px] items-start h-[130px] rounded-lg bg-[#FDECEC] px-[15px]">
-                    <h1 className="text-[18px] font-bold text-[#F05656]">
+                  <div className="w-full flex flex-col items-start gap-2 p-4 mt-4 rounded-lg bg-[#FDECEC]">
+                    <h1 className="text-lg font-bold text-[#F05656]">
                       Danger Zone
                     </h1>
-
-                    <p className="text-[#F05656] text-[14px] mt-[3px] font-[500]">
+                    <p className="text-[#F05656] text-sm">
                       Deleting your account is permanent and cannot be undone.
                     </p>
-
-                    <button className="flex items-center justify-center gap-[10px] bg-[#F05454] text-white mt-[10px] py-[6px] px-[10px] text-[14px] rounded-lg">
+                    <button className="flex items-center gap-2 bg-[#F05454] text-white py-2 px-4 text-sm rounded-lg">
                       <AlertCircle size={16} />
                       Delete Account
                     </button>

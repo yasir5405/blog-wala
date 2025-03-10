@@ -17,6 +17,8 @@ import RecoverPassword from "./pages/RecoverPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Post from "./pages/Post";
+import MyPosts from "./pages/MyPosts";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -37,14 +39,19 @@ const App = () => {
       .finally(() => setLoading(false));
   }, [dispatch, navigate]);
 
-  const hideHeaderRoutes = ["/login", "/signup"];
+  const hideHeaderRoutes = [
+    "/login",
+    "/signup",
+    "/recover-password",
+    "/reset-password",
+  ];
   const shouldShowHeader = !hideHeaderRoutes.includes(location.pathname);
 
   return (
     <>
       {shouldShowHeader && <Header />}
 
-      <ToastContainer className='z-50' position="top-right" autoClose={3000} />
+      <ToastContainer className="z-50" position="top-right" autoClose={3000} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -71,6 +78,14 @@ const App = () => {
         <Route
           path="/:userId"
           element={<ProtectedRoute element={<UserProfile />} />}
+        />
+        <Route
+          path="/posts/:id"
+          element={<ProtectedRoute element={<Post />} />}
+        />
+        <Route
+          path="/my-posts"
+          element={<ProtectedRoute element={<MyPosts />} />}
         />
         <Route path="/auth/callback" element={<AuthCallback />} />
         <Route

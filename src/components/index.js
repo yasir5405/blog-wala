@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import BlogCard from "./BlogCard";
 import AuthCallback from "./AuthCallback";
 import HeroSection from "./HeroSection";
+import Select from "./Select";
 
 export {
   Input,
@@ -16,4 +17,5 @@ export {
   BlogCard,
   AuthCallback,
   HeroSection,
+  Select,
 };
