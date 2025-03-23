@@ -209,7 +209,7 @@ const LoginForm = () => {
         </form>
 
         <h1 className="font-medium text-[14px] text-center">
-          Have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link className="text-zinc-300 underline" to="/signup">
             Sign up
           </Link>
