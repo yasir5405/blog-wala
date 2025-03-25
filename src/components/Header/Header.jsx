@@ -98,7 +98,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
@@ -134,8 +134,29 @@ const Header = () => {
     },
   ];
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="w-full h-[65px] flex items-center justify-between px-6 md:px-12 lg:px-20 border-b border-gray-600 shadow-md bg-zinc-950 text-white relative">
+    <nav
+      className={`w-full h-[65px] flex items-center justify-between px-6 md:px-12 lg:px-20 border-b border-gray-600 shadow-md bg-zinc-950 text-white fixed top-0 left-0 z-50 ${
+        isScrolled
+          ? "bg-white/5 backdrop-blur-lg border-b border-zinc-700 shadow-md"
+          : "bg-zinc-950"
+      }`}
+    >
       {/* Logo */}
       <h1 className="text-lg md:text-xl font-semibold flex gap-2 items-center">
         <img
@@ -207,7 +228,7 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#09090B] text-white shadow-lg flex flex-col items-center py-4 md:hidden">
+        <div className="absolute top-16 left-0 w-full bg-[#09090B] text-white shadow-2xl flex flex-col items-center py-4 md:hidden border-b border-gray-500">
           {navLinks.map(({ name, link }) => (
             <NavLink
               key={link}

@@ -23,8 +23,8 @@ const AllPosts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <h1 className="text-3xl font-bold text-gray-800 text-center mb-8">
+    <div className="mt-[65px] min-h-screen py-10 px-4 bg-zinc-950 ">
+      <h1 className="text-3xl font-bold text-white text-center mb-8">
         All Blog Posts
       </h1>
 

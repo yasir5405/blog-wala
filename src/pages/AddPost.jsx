@@ -33,12 +33,12 @@ const AddPost = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen pt-[10px] px-4">
+    <div className="mt-[65px] flex items-center justify-center min-h-screen pt-[10px] px-4 bg-zinc-950 text-white">
       <form
-        className="bg-white shadow-lg rounded-lg p-6 max-w-3xl w-full space-y-4"
+        className="bg-zinc-800/20 backdrop-blur-lg border border-white/20 shadow-lg rounded-lg p-6 max-w-3xl w-full space-y-4"
         onSubmit={handleSubmit(addPost)}
       >
-        <h2 className="text-2xl font-bold text-gray-700 text-center">
+        <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-white text-center">
           Create a New Post
         </h2>
 
@@ -50,7 +50,7 @@ const AddPost = () => {
           control={control}
           defaultValue={""}
           render={({ field }) => (
-            <Input label="content" type="rte" {...field} />
+            <Input label="Content" type="rte" {...field} />
           )}
         />
 
@@ -71,7 +71,7 @@ const AddPost = () => {
         />
 
         <button
-          className="w-full bg-sky-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-sky-600 focus:ring-4 focus:ring-sky-300 transition"
+          className="w-full bg-white text-black font-semibold py-3 rounded-lg shadow-md focus:ring-4 focus:ring-zinc-300 transition-all ease-linear duration-200 hover:bg-zinc-200"
           type="submit"
         >
           Post Blog
