@@ -190,6 +190,7 @@ import service from "../appwrite/config.js";
 import conf from "../conf/conf.js";
 import { useEffect, useState } from "react";
 import { AlertCircle, User } from "lucide-react";
+import ProfileSkeleton from "@/components/ProfileSkeleton.jsx";
 
 const UserProfile = () => {
   const { userId } = useParams();
@@ -314,7 +315,9 @@ const UserProfile = () => {
 
                   {/* Profile Picture Section */}
                   <div className="w-full sm:w-1/2 flex flex-col items-center gap-4">
-                    {profileImage ? (
+                    {profileImage === null ? (
+                      <ProfileSkeleton />
+                    ) : profileImage ? (
                       <img
                         src={profileImage}
                         alt="Profile"

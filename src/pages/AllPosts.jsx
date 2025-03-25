@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import service from "../appwrite/config";
 import BlogCard from "../components/BlogCard";
 import { Link } from "react-router-dom";
+import { Skeleton } from "@mui/material";
+import BlogCardSkeleton from "@/components/BlogCardSkeleton";
 
 const AllPosts = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
       const posts = await service.getAllPosts();
       setPosts(posts);
+      setLoading(false);
     };
 
     getPosts();
@@ -23,13 +27,19 @@ const AllPosts = () => {
   };
 
   return (
-    <div className="mt-[65px] min-h-screen py-10 px-4 bg-zinc-950 ">
+    <div className="mt-[65px] min-h-screen py-10 px-4 bg-zinc-950">
       <h1 className="text-3xl font-bold text-white text-center mb-8">
         All Blog Posts
       </h1>
 
-      {posts.length === 0 ? (
-        <p className="text-center text-gray-600 text-lg">No posts found.</p>
+      {loading ? (
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <BlogCardSkeleton key={index} />
+          ))}
+        </div>
+      ) : posts.length === 0 ? (
+        <p className="text-center text-gray-400 text-lg">No posts found.</p>
       ) : (
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {posts.map((post) => (

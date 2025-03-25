@@ -15,7 +15,7 @@ const Select = forwardRef(function Select(
       )}
 
       <select
-        className={`bg-transparent outline-none border-[1px] border-zinc-500 py-[4px] px-[5px] rounded-lg ${className}`}
+        className={`bg-transparent outline-none border-[1px] border-zinc-500 py-[4px] px-[5px] rounded-lg text-white bg-zinc-950 ${className}`}
         id={id}
         ref={ref}
         {...props}

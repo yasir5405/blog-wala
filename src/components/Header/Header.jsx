@@ -158,14 +158,16 @@ const Header = () => {
       }`}
     >
       {/* Logo */}
-      <h1 className="text-lg md:text-xl font-semibold flex gap-2 items-center">
-        <img
-          src="https://stealthwriter.ai/logo-icon.svg"
-          alt=""
-          className="h-8 w-8 invert brightness-0"
-        />
-        BlogWala
-      </h1>
+      <Link to={"/"}>
+        <h1 className="text-lg md:text-xl font-semibold flex gap-2 items-center">
+          <img
+            src="https://stealthwriter.ai/logo-icon.svg"
+            alt=""
+            className="h-8 w-8 invert brightness-0"
+          />
+          BlogWala
+        </h1>
+      </Link>
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-6">
