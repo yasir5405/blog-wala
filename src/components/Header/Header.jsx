@@ -135,13 +135,13 @@ const Header = () => {
   ];
 
   return (
-    <nav className="w-full h-[65px] flex items-center justify-between px-6 md:px-12 lg:px-20 border-b-[1px] border-gray-200 shadow-md bg-white relative">
+    <nav className="w-full h-[65px] flex items-center justify-between px-6 md:px-12 lg:px-20 border-b border-gray-600 shadow-md bg-zinc-950 text-white relative">
       {/* Logo */}
       <h1 className="text-lg md:text-xl font-semibold flex gap-2 items-center">
         <img
           src="https://stealthwriter.ai/logo-icon.svg"
           alt=""
-          className="h-8 w-8"
+          className="h-8 w-8 invert brightness-0"
         />
         BlogWala
       </h1>
@@ -151,8 +151,8 @@ const Header = () => {
         {navLinks.map(({ name, link }, i) => (
           <NavLink
             className={({ isActive }) =>
-              `font-medium text-sm hover:text-black transition-all ease-linear ${
-                isActive ? "text-black" : "text-zinc-500"
+              `font-normal text-sm hover:text-zinc-300 transition-all ease-linear ${
+                isActive ? "text-zinc-200" : "text-[#B5B5B7]"
               }`
             }
             to={link}
@@ -164,8 +164,8 @@ const Header = () => {
         {userData && (
           <NavLink
             className={({ isActive }) =>
-              `font-medium text-sm hover:text-black transition-all ease-linear ${
-                isActive ? "text-black" : "text-zinc-500"
+              `font-normal text-sm hover:text-zinc-300 transition-all ease-linear ${
+                isActive ? "text-zinc-200" : "text-[#B5B5B7]"
               }`
             }
             to={`/${userData?.$id}`}
@@ -179,7 +179,7 @@ const Header = () => {
       <div className="hidden md:flex items-center gap-4">
         {userData ? (
           <button
-            className="font-medium text-[15px] border-[1px] border-zinc-400 py-[7px] px-[20px] text-[#FAFAFA] bg-[#2F2F31] rounded-lg transition-all ease-linear duration-100 hover:bg-[#3a3a3b]"
+            className="font-medium text-[15px] border-[1px] border-zinc-400 py-[7px] px-[20px] text-black bg-white rounded-lg transition-all ease-linear duration-300 hover:bg-zinc-200"
             onClick={handleLogout}
           >
             Logout
@@ -187,12 +187,12 @@ const Header = () => {
         ) : (
           <div className="flex gap-[10px]">
             <Link to={"/login"}>
-              <button className="font-medium text-[15px] border-[1px] border-zinc-300 py-[7px] px-[20px] hover:bg-zinc-50 transition-all ease-linear duration-200 text-black rounded-lg">
+              <button className="font-medium text-[15px] border border-zinc-500 py-[7px] px-[20px] hover:bg-zinc-800 transition-all ease-linear duration-200 text-white rounded-lg">
                 Login
               </button>
             </Link>
             <Link to={"/signup"}>
-              <button className="font-medium text-[15px] border-[1px] border-zinc-400 py-[7px] px-[20px] text-[#FAFAFA] bg-[#2F2F31] rounded-lg transition-all ease-linear duration-100 hover:bg-[#3a3a3b]">
+              <button className="font-medium text-[15px] py-[7px] px-[20px] text-black bg-white rounded-lg transition-all ease-linear duration-300 hover:bg-zinc-200">
                 Signup
               </button>
             </Link>
@@ -207,12 +207,12 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 md:hidden">
+        <div className="absolute top-16 left-0 w-full bg-[#09090B] text-white shadow-lg flex flex-col items-center py-4 md:hidden">
           {navLinks.map(({ name, link }) => (
             <NavLink
               key={link}
               to={link}
-              className="py-2 text-sm font-medium text-gray-700 hover:text-black"
+              className="py-2 text-sm font-medium text-white hover:text-zinc-300"
               onClick={() => setIsOpen(false)}
             >
               {name}
@@ -221,7 +221,7 @@ const Header = () => {
           {userData && (
             <NavLink
               to={`/${userData?.$id}`}
-              className="py-2 text-sm font-medium text-gray-700 hover:text-black"
+              className="py-2 text-sm font-medium text-white hover:text-zinc-300"
               onClick={() => setIsOpen(false)}
             >
               Profile
@@ -233,7 +233,7 @@ const Header = () => {
                 handleLogout();
                 setIsOpen(false);
               }}
-              className="mt-3 py-2 px-4 text-white bg-gray-900 rounded-lg"
+              className="mt-3 font-medium text-[15px] py-[7px] px-[20px] text-black bg-white rounded-lg transition-all ease-linear duration-300 hover:bg-zinc-200"
             >
               Logout
             </button>
@@ -241,7 +241,7 @@ const Header = () => {
             <div className="flex flex-col w-full items-center gap-2 mt-3">
               <Link to="/login">
                 <button
-                  className="w-32 text-sm border border-gray-300 py-2 px-4 hover:bg-gray-100 transition-all rounded-lg"
+                  className="font-medium text-[15px] border border-zinc-500 py-[7px] px-[20px] hover:bg-zinc-800 transition-all ease-linear duration-200 text-white rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   Login
@@ -250,7 +250,7 @@ const Header = () => {
 
               <Link to="/signup">
                 <button
-                  className="w-32 text-sm border border-gray-400 py-2 px-4 bg-gray-900 text-white rounded-lg transition-all hover:bg-gray-800"
+                  className=" mt-2font-medium text-[15px] py-[7px] px-[20px] text-black bg-white rounded-lg transition-all ease-linear duration-300 hover:bg-zinc-200"
                   onClick={() => setIsOpen(false)}
                 >
                   Signup

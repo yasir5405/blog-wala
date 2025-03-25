@@ -21,12 +21,12 @@ const RecoverPassword = () => {
   };
 
   return (
-    <div className="h-[90vh] w-full flex items-center justify-center">
-      <div className="h-[300px] w-[300px] border-[1px] border-zinc-300 shadow-xl rounded-lg flex flex-col py-[20px]">
-        <h1 className="text-center text-[18px] font-semibold">
+    <div className="h-screen w-full flex items-center justify-center bg-zinc-950 text-white">
+      <div className="h-[300px] w-[300px] border border-gray-700 shadow-xl rounded-lg flex flex-col py-[20px]">
+        <h1 className="text-center text-[28px] md:text-[32px] lg:text-[32px] font-semibold">
           Recover Password
         </h1>
-        <p className="text-center text-[14px] text-gray-400">
+        <p className="text-center text-[14px] md:text-[16px] lg:text-[16px] text-gray-400">
           Enter your email to reset your password.
         </p>
 
@@ -43,11 +43,11 @@ const RecoverPassword = () => {
           />
 
           <button
-            className="w-full bg-[#2F2F31] text-white rounded-md mt-[15px] text-[14px] py-[5px] hover:bg-[#3a3a3b] transition-all ease-linear duration-100"
+            className="w-full bg-white py-[5px] mt-[10px] font-medium text-black text-[17px] rounded-lg transition-all ease-linear duration-200 hover:bg-zinc-200"
             disabled={loading}
             type="submit"
           >
-            {loading ? "Sending..." : "Send Reset Link"}
+            {loading ? "Sending..." : "Send reset link"}
           </button>
         </form>
       </div>
