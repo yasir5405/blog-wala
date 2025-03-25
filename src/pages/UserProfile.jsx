@@ -315,9 +315,7 @@ const UserProfile = () => {
 
                   {/* Profile Picture Section */}
                   <div className="w-full sm:w-1/2 flex flex-col items-center gap-4">
-                    {profileImage === null ? (
-                      <ProfileSkeleton />
-                    ) : profileImage ? (
+                    {profileImage ? (
                       <img
                         src={profileImage}
                         alt="Profile"
@@ -336,7 +334,7 @@ const UserProfile = () => {
                         />
                         <button
                           type="submit"
-                          className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
+                          className="bg-white hover:bg-zinc-200 text-black px-4 py-2 rounded-lg"
                         >
                           Upload Profile Pic
                         </button>
