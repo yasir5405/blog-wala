@@ -101,6 +101,25 @@ export class Service {
     }
   }
 
+  async createContactQuery({ name, email, subject, message }) {
+    try {
+      return await this.databases.createDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteContactCollectionId,
+        ID.unique(),
+        {
+          name,
+          email,
+          subject,
+          message,
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
   async getAllPosts() {
     try {
       const posts = await this.databases.listDocuments(
