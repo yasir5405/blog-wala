@@ -5,13 +5,16 @@ import service from "../appwrite/config";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Select } from "../components";
+import { useState } from "react";
 
 const AddPost = () => {
   const { register, handleSubmit, control } = useForm();
   const userData = useSelector((state) => state.auth.userData);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const addPost = async (data) => {
+    setLoading(true);
     try {
       const file = await service.uploadImage(data.image[0]);
 
@@ -29,6 +32,8 @@ const AddPost = () => {
     } catch (error) {
       console.log(error);
       toast.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,8 +78,9 @@ const AddPost = () => {
         <button
           className="w-full bg-white text-black font-semibold py-3 rounded-lg shadow-md focus:ring-4 focus:ring-zinc-300 transition-all ease-linear duration-200 hover:bg-zinc-200"
           type="submit"
+          disabled={loading}
         >
-          Post Blog
+          {loading ? "Posting..." : "Post Blog"}
         </button>
       </form>
     </div>
