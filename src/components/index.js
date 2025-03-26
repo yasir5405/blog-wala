@@ -7,6 +7,7 @@ import BlogCard from "./BlogCard";
 import AuthCallback from "./AuthCallback";
 import HeroSection from "./HeroSection";
 import Select from "./Select";
+import Features from "./Features";
 
 export {
   Input,
@@ -18,4 +19,5 @@ export {
   AuthCallback,
   HeroSection,
   Select,
+  Features,
 };
