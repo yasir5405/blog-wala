@@ -33,7 +33,7 @@ const AllPosts = () => {
       </h1>
 
       {loading ? (
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
           {Array.from({ length: 6 }).map((_, index) => (
             <BlogCardSkeleton key={index} />
           ))}
@@ -41,7 +41,7 @@ const AllPosts = () => {
       ) : posts.length === 0 ? (
         <p className="text-center text-gray-400 text-lg">No posts found.</p>
       ) : (
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
           {posts.map((post) => (
             <Link key={post?.$id} to={`/posts/${post.$id}`} className="group">
               <BlogCard
