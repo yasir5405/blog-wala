@@ -29,7 +29,7 @@ const BlogCard = ({ image, author, date, title, content }) => {
         </h1>
 
         {/* Description (Truncated for Better Layout) */}
-        <p className="text-sm text-zinc-400 line-clamp-3">{parse(content)}</p>
+        <p className="prose prose-invert  text-sm text-zinc-400 line-clamp-3">{parse(content)}</p>
       </div>
     </div>
   );

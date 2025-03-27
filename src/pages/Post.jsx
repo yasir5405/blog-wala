@@ -86,7 +86,7 @@ const Post = () => {
         )}
 
         {/* Post Content */}
-        <div className="text-zinc-300 text-lg leading-7">
+        <div className="prose prose-invert text-zinc-300 text-lg leading-7">
           {parse(post.content)}
         </div>
       </div>
