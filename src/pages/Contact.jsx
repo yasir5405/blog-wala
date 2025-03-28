@@ -28,14 +28,14 @@ const Contact = () => {
   return (
     <div className="pt-[65px] w-full h-[calc(100vh-65px)]  flex flex-col md:flex-row lg:flex-row bg-zinc-950 text-white">
       {/* LEft Div/ Top Div */}
-      <div className="w-full h-[40%] md:h-full lg:h-full md:w-[40%] lg:w-[40%] flex flex-col justify-center items-start px-6 md:px-28 lg:px-32 gap-[10px]">
+      <div className="w-full h-[30%] md:h-full lg:h-full md:w-[40%] lg:w-[40%] flex flex-col justify-center items-start px-6 md:px-28 lg:px-32 gap-[10px]">
         <h1 className="font-semibold text-[45px] md:text-[45px]">Contact Us</h1>
         <p className="text-gray-200 text-[16px] md:text-[18px]">
           We&apos;d love your input: questions, feature requests, bugs or
           compliments.
         </p>
       </div>
-      <div className="w-full h-[60%] md:h-full lg:h-full md:w-[60%] lg:w-[60%] flex flex-col items-center justify-center px-2 md:px-28 lg:px-32">
+      <div className="w-full h-[70%] md:h-full lg:h-full md:w-[60%] lg:w-[60%] flex flex-col items-center justify-center px-2 md:px-28 lg:px-32">
         <form
           onSubmit={handleSubmit(contact)}
           className="w-full h-full p-4 flex flex-col gap-[15px] items-center justify-center"
