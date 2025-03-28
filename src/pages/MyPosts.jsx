@@ -105,7 +105,7 @@ const MyPosts = () => {
   };
 
   return (
-    <div className="mt-[65px] w-full min-h-screen bg-zinc-950 text-white flex flex-col items-center py-10">
+    <div className="pt-[85px] w-full min-h-screen bg-zinc-950 text-white flex flex-col items-center py-10">
       <h1 className="text-3xl font-bold text-white mb-6">My Posts</h1>
 
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import service from "../appwrite/config";
 import BlogCard from "../components/BlogCard";
 import { Link } from "react-router-dom";
-import { Skeleton } from "@mui/material";
 import BlogCardSkeleton from "@/components/BlogCardSkeleton";
 
 const AllPosts = () => {
@@ -27,7 +26,7 @@ const AllPosts = () => {
   };
 
   return (
-    <div className="mt-[65px] min-h-screen py-10 px-4 bg-zinc-950">
+    <div className="pt-[85px] min-h-screen py-10 px-4 bg-zinc-950">
       <h1 className="text-3xl font-bold text-white text-center mb-8">
         All Blog Posts
       </h1>

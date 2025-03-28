@@ -38,7 +38,7 @@ const AddPost = () => {
   };
 
   return (
-    <div className="mt-[65px] flex items-center justify-center min-h-screen pt-[10px] px-4 bg-zinc-950 text-white">
+    <div className="pt-[85px] flex items-center justify-center min-h-screen  px-4 bg-zinc-950 text-white">
       <form
         className="bg-zinc-800/20 backdrop-blur-lg border border-white/20 shadow-lg rounded-lg p-6 max-w-3xl w-full space-y-4"
         onSubmit={handleSubmit(addPost)}

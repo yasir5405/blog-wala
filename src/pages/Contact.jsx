@@ -26,11 +26,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-[65px] w-full h-[calc(100vh-65px)]  flex flex-col md:flex-row lg:flex-row bg-zinc-950 text-white">
+    <div className="pt-[65px] w-full h-[calc(100vh-65px)]  flex flex-col md:flex-row lg:flex-row bg-zinc-950 text-white">
       {/* LEft Div/ Top Div */}
       <div className="w-full h-[40%] md:h-full lg:h-full md:w-[40%] lg:w-[40%] flex flex-col justify-center items-start px-6 md:px-28 lg:px-32 gap-[10px]">
         <h1 className="font-semibold text-[45px] md:text-[45px]">Contact Us</h1>
-        <p className="text-gray-200 text-[18px] md:text-[19px]">
+        <p className="text-gray-200 text-[16px] md:text-[18px]">
           We&apos;d love your input: questions, feature requests, bugs or
           compliments.
         </p>
