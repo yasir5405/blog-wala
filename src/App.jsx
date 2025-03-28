@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Post from "./pages/Post";
 import MyPosts from "./pages/MyPosts";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -97,6 +98,8 @@ const App = () => {
           element={<PublicRoute element={<ResetPassword />} />}
         />
       </Routes>
+
+      {shouldShowHeader && <Footer />}
     </>
   );
 };
