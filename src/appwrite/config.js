@@ -19,7 +19,7 @@ export class Service {
   async uploadProfileImage(file) {
     try {
       return await this.storage.createFile(
-        conf.appwriteUserBucketId,
+        conf.appwriteBucketId, // changed from conf.appwriteUserBucketId
         ID.unique(),
         file
       );

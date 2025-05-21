@@ -244,7 +244,7 @@ const UserProfile = () => {
     }
 
     const fileUrl = service.storage.getFilePreview(
-      conf.appwriteUserBucketId,
+      conf.appwriteBucketId, // changed from conf.appwriteUserBucketId
       uploadedFile.$id
     );
 
